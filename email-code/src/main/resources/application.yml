@@ -1,0 +1,28 @@
+server:
+  port: 8899
+
+spring:
+  mail:
+    username: fyk91534@163.com
+    password: asdfghjkl@654321
+    host: smtp.163.com
+    port: 465
+    protocol: smtps
+    default-encoding: utf-8
+    properties:
+      mail:
+        smtp:
+          socketFactoryClass: javax.net.ssl.SSLSocketFactory
+          debug: true
+          ssl: true
+  data:
+    redis:
+      host: 192.168.10.17
+      port: 6379
+      password: thinker
+      lettuce:
+        pool:
+          max-active: 10
+          max-idle: 10
+          min-idle: 1
+          time-between-eviction-runs: 10s
