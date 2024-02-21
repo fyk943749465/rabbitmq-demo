@@ -11,7 +11,9 @@ public interface RabbitMQConstant {
     /**
      * 队列
      */
-    public static final String REGISTER_QUEUE_PUT = "test_register_queue_put";
+    // public static final String REGISTER_QUEUE_PUT = "test_register_queue_put";
+
+    public static final String REGISTER_QUEUE_PUT = "binance_kline_queue_put";
 
     /**
      * routingkey
