@@ -12,5 +12,9 @@
     <module>consumer</module>
     <module>producer</module>
     <module>common</module>
+    <module>minio-demo</module>
+    <module>sqlite-demo</module>
+    <module>phonenum-google</module>
+    <module>exchange-demo</module>
   </modules>
 </project>
