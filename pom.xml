@@ -16,5 +16,6 @@
     <module>sqlite-demo</module>
     <module>phonenum-google</module>
     <module>exchange-demo</module>
+    <module>spring-event</module>
   </modules>
 </project>
