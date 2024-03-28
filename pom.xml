@@ -17,5 +17,7 @@
     <module>phonenum-google</module>
     <module>exchange-demo</module>
     <module>spring-event</module>
+    <module>blockcypher-api</module>
+      <module>bitcoinj-demo</module>
   </modules>
 </project>
