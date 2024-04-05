@@ -19,5 +19,6 @@
     <module>spring-event</module>
     <module>blockcypher-api</module>
       <module>bitcoinj-demo</module>
+      <module>blockchain-data-resolve</module>
   </modules>
 </project>

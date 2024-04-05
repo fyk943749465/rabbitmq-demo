@@ -1,5 +1,6 @@
 package com.blockcypher.api.controller;
 
+import com.blockcypher.api.pojo.Balance;
 import com.blockcypher.api.service.BlockCypherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -14,9 +15,9 @@ public class BlockCypherController {
     /**
      * =======================================address start ==================================================
      */
-    @GetMapping("/balance")
-    public String getBalance() {
-        String balance = blockCypherService.balance();
+    @GetMapping("/balance/{address}")
+    public Balance getBalance(@PathVariable(required = true) String address) {
+        Balance balance = blockCypherService.balance(address);
         return balance;
     }
 

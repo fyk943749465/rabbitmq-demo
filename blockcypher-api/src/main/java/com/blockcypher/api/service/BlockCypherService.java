@@ -1,5 +1,6 @@
 package com.blockcypher.api.service;
 
+import com.blockcypher.api.pojo.Balance;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
@@ -42,10 +43,25 @@ public class BlockCypherService {
         return "error";
     }
 
-    public String balance() {
+    public Balance balance(String address) {
 
-        String url = "https://api.blockcypher.com/v1/btc/main/addrs/1DEP8i3QJCsomS4BSMY2RpU1upv62aGvhD/balance";
-        return getRequest(url);
+        String url = "https://api.blockcypher.com/v1/btc/main/addrs/" + address + "/balance";
+
+        return getBalanceRequest(url);
+    }
+
+    private Balance getBalanceRequest(String url) {
+
+        ResponseEntity<Balance> responseEntity = restTemplate.getForEntity(url, Balance.class);
+
+        HttpStatusCode statusCode = responseEntity.getStatusCode();
+
+        if (statusCode.is2xxSuccessful()) {
+            Balance responseData = responseEntity.getBody();
+            return responseData;
+        }
+        return null;
+
     }
 
 
