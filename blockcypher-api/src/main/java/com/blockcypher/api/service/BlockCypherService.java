@@ -1,6 +1,7 @@
 package com.blockcypher.api.service;
 
 import com.blockcypher.api.pojo.Balance;
+import com.blockcypher.api.pojo.FullTrade;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
@@ -106,5 +107,25 @@ public class BlockCypherService {
         // String url = "https://api.blockcypher.com/v1/btc/main/feature/bip65?token=YOURTOKEN";
         String url = "https://api.blockcypher.com/v1/btc/main/feature/bip65?token=08af25e5116f40d3aa43ebd9eaacf81c";
         return getRequest(url);
+    }
+
+    public FullTrade fullTrade(String address, int before) {
+
+        String url = "https://api.blockcypher.com/v1/btc/main/addrs/" + address + "/full?before=" + before;
+
+        return getRequestFullTrade(url);
+    }
+
+    private FullTrade getRequestFullTrade(String url) {
+
+        ResponseEntity<FullTrade> responseEntity = restTemplate.getForEntity(url, FullTrade.class);
+
+        HttpStatusCode statusCode = responseEntity.getStatusCode();
+
+        if (statusCode.is2xxSuccessful()) {
+            FullTrade responseData = responseEntity.getBody();
+            return responseData;
+        }
+        return null;
     }
 }
